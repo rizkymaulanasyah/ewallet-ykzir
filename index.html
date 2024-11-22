@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Elegan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pembayaran E-Wallet</h1>
+        <p>Pilih metode pembayaran atau scan QRIS untuk transaksi yang lebih mudah.</p>
+
+        <div class="payment-section">
+            <div class="payment-card">
+                <h2>DANA</h2>
+                <p>Nomor: <strong>08XXXXXX</strong></p>
+                <button class="copy-button" onclick="copyText(08XXX')">Salin Nomor</button>
+            </div>
+            
+            <div class="payment-card">
+                <h2>GoPay</h2>
+                <p>Nomor: <strong>0812-1234-5678</strong></p>
+                <button class="copy-button" onclick="copyText('0812-1234-5678')">Salin Nomor</button>
+            </div>
+            
+            <div class="payment-card">
+                <h2>OVO</h2>
+                <p>Nomor: <strong>0812-8765-4321</strong></p>
+                <button class="copy-button" onclick="copyText('0812-8765-4321')">Salin Nomor</button>
+            </div>
+            
+        </div>
+
+        <div class="qris-section">
+            <h2>Scan QRIS</h2>
+            <div class="qris-container">
+                <img src="IMG/Screenshot_20240527_140811_Order Kuota.jpg" alt="QRIS AllPay" class="qris-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(text) {
+            // Buat elemen input sementara
+            const tempInput = document.createElement("input");
+            tempInput.style.position = "absolute";
+            tempInput.style.left = "-9999px";
+            tempInput.value = text;
+        
+            // Masukkan input ke dalam halaman
+            document.body.appendChild(tempInput);
+        
+            // Pilih dan salin teks
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // Untuk perangkat mobile
+            try {
+                document.execCommand("copy");
+                alert("Nomor berhasil disalin: " + text);
+            } catch (err) {
+                console.error("Gagal menyalin teks:", err);
+                alert("Gagal menyalin nomor, coba lagi.");
+            }
+        
+            // Hapus elemen input sementara
+            document.body.removeChild(tempInput);
+        }
+        </script>        
+
+</body>
+</html>
